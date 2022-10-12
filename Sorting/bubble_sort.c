@@ -1,6 +1,6 @@
 #include<stdio.h>
 int main(){
-    int n,arr[20],i,j,a,swap,p=0;
+    int arr[20],n,i,j,a,swap,p=0;
     printf("How many numbers wants in array:");
     scanf("%d",&n);
     printf("Enter %d numbers of array:",n);
@@ -27,4 +27,5 @@ int main(){
         printf("%d  ",arr[i]);
     }
     printf("\nNumber of passes:%d",p);
+    return 0;
 }
