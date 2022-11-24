@@ -1,5 +1,5 @@
 #include<stdio.h>
-int partition(int arr[],int s,int e){
+int partition(int *arr,int s,int e){
     int i,c=0,pivotindex;
     int pivot=arr[s];
     for(i=s+1;i<=e;i++){

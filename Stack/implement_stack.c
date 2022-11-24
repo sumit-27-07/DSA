@@ -41,7 +41,7 @@ void peek(){
 }
 int main(){
     int choice,x;
-    printf("\n\t STACK OPERATIONS USING ARRAY");
+    printf("\n\tSTACK OPERATIONS USING ARRAY");
     printf("\n\t--------------------------------");
     printf("\n\t 1.PUSH\n\t 2.POP\n\t 3.DISPLAY\n\t 4.PEEK\n\t 5.EXIT\n");
     do{

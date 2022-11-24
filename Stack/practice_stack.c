@@ -1,89 +1,87 @@
 #include<stdio.h>
 #include<stdlib.h>
-struct stack{
-    int size;
-    int *arr;
-    int top;
-};
-int isfull(struct stack *ptr){
-    if(ptr->size-1==ptr->top){
+int n=10;
+int stack[10];
+int top=-1;
+int isempty(){
+    if(top==-1){
         return 1;
     }
     return 0;
 }
-int isempty(struct stack *ptr){
-    if(ptr->top==-1){
+int isfull(){
+    if(top==n-1){
         return 1;
     }
     return 0;
 }
-void push(struct stack *s){
-    int num;
-    printf("Enter data for push:");
-    scanf("%d",&num);
-    if(isfull(s)){
+void push(){
+    if(isfull()){
         printf("Stack is overflow\n");
     }
     else{
-        s->top++;
-        s->arr[s->top]=num;
+        top++;
+        int num;
+        printf("Enter data for push:");
+        scanf("%d",&num);
+        stack[top]=num;
     }
 }
-int pop(struct stack *s){
-    if(isempty(s)){
-        printf("Stack is Empty\n");
+void pop(){
+    if(isempty()){
+        printf("Stack is underflow\n");
     }
     else{
-        int x=s->arr[s->top];
-        s->top=s->top-1;;
-        return x;
+        int x;
+        x=stack[top];
+        printf("Deleted number=%d\n",x);
+        top--;
     }
 }
-char *infix_postfix(char *infix){
-    struct stack *s=(struct stack *)malloc(sizeof(struct stack));
-    s->size=10;
-    s->top=-1;
-    s->arr=(char *)malloc(s->size*sizeof(char));
-    char *postfix=
-}
-void display(struct stack *s){
-    int i=s->top;
-    printf("Data in stack:\n");
-    while(i>=0){
-        printf("%d\n",s->arr[i]);
-        i--;
+void display(){
+    int x=top;
+    printf("Numbers is stack:");
+    while(x>-1){
+        printf("%d\t",stack[x]);
+        x--;
     }
+    printf("\n");
+}
+void peak(){
+    int o,pos;
+    printf("Enter position for peak value:");
+    scanf("%d",&o);
+    pos=top-o+1;
+    printf("Peak Value=%d\n",stack[pos]);
 }
 int main(){
-    /*struct stack *s;
-    s->size=10;
-    s->top=-1;
-    s->arr=(int *)malloc(s->size*sizeof(int));
-    int x,choice;
-    printf("\tSTACK OPERATION USING ARRAY\n");
-    printf("\t---------------------------\n");
-    printf("\t1.PUSH\n\t2.POP\n\t3.DISPLAY\n\t4.EXIT\n");
-    do{
+    int choice;
+    printf("STACK OPERATION USING ARRAY\n");
+    printf("1.PUSH\n2.POP\n3.DISPLAY\n4.PEAK\n5.EXIT\n");
+    do
+    {
         printf("Enter choice:");
         scanf("%d",&choice);
         switch (choice)
         {
         case 1:
-            push(s);
+            push();
             break;
         case 2:
-            x=pop(s);
-            printf("Deleted Number:%d\n",x);
+            pop();
             break;
         case 3:
-            display(s);
+            display();
             break;
         case 4:
-            printf("EXIT\n");
+            peak();
+            break;
+        case 5:
+            printf("EXIT");
             break;
         default:
-            printf("ENTER VALID CHOICE(1/2/3/4):\n");
+            printf("Please Enter a Valid Choice(1/2/3/4/5)\n");
         }
-    }while(choice!=4);*/
+    } while (choice!=5);
     return 0;
 }
