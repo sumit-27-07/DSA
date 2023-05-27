@@ -23,9 +23,9 @@ int partition(int *arr,int s,int e){
         while(arr[k]>pivot){
             k--;
         }
-        if(s<pivotindex&&k>pivotindex){
-        temp=arr[i];
-        arr[i]=arr[j];
+        if(j<pivotindex&&k>pivotindex){
+        temp=arr[k];
+        arr[k]=arr[j];
         arr[j]=temp;
             j++;
             k--;

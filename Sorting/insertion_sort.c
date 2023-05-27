@@ -7,14 +7,7 @@ int main(){
     for(i=0;i<n;i++){
         scanf("%d",&arr[i]);
     }
-    for(i=0;i<n;i++){
-        /*for(j=i;j>0;j--){
-            if(arr[j]<arr[j-1]){
-              x=arr[j-1];
-              arr[j-1]=arr[j];
-              arr[j]=x;
-            }
-        }*/
+    for(i=1;i<n;i++){
         x=arr[i];
         j=i-1;
         while(arr[j]>x && j>=0){

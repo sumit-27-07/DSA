@@ -9,7 +9,7 @@ int main(){
 	create_arr(arr,m);
 	
 	//Insert element in array
-	printf("Enter position to insert a number:");
+	printf("Enter index to insert a number:");
 	scanf("%d",&n);
 	printf("Enter a number:");
 	scanf("%d",&num);
@@ -28,9 +28,9 @@ void create_arr(int arr[],int m){
 	}
 }
 void insert(int arr[],int m,int n,int num){
-	for(int i=m-1;i>=n-1;i--){
+	for(int i=m-1;i>=n;i--){
 		arr[i+1]=arr[i];
 	}
-	arr[n-1]=num;
+	arr[n]=num;
 }
 

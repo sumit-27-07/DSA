@@ -7,18 +7,15 @@ struct queue{
     int *arr;
 };
 int enqueue(struct queue *q){
-    if((q->front==0&&q->rear==q->size-1)||(q->rear==(q->front-1)%(q->size-1))){
+    if(q->front==(q->rear+1)%(q->size)){
         printf("Queue is full\n");
         return -1;
     }
-    else if(q->front==-1){
+    else if(q->rear==-1){
         q->front=q->rear=0;
     }
-    else if(q->rear==q->size-1){
-        q->rear=0;
-    }
     else{
-        q->rear=q->rear+1;
+        q->rear=(q->rear+1)%(q->size);
     }
     int val;
     printf("Enter data for enqueue:");
@@ -34,25 +31,21 @@ int dequeue(struct queue *q){
     if(q->front==q->rear){
         q->front=q->rear=-1;
     }
-    else if(q->front==q->size-1){
-        q->front==0;
-    }
     else{
-        q->front++;
+        q->front=(q->front+1)%q->size;
     }
-    return del;
+    printf("Deleted element:%d\n",del);
+    return 0;
 }
 void display(struct queue *q){
     int i;
     i=q->front;
     printf("Elements in queue:");
-    do{
-        printf("\nElement at index[%d]:%d",i,q->arr[i]);
-        if(i==q->rear){
-            break;
-        }
-        i=(i+1)%q->size;
-    }while(i!=q->front);
+    while(i!=q->rear){
+            printf("%d  ",q->arr[i]);
+            i=(i+1)%q->size;
+    }
+    printf("%d",q->arr[q->rear]);
     printf("\n");
 }
 int main(){
@@ -73,8 +66,7 @@ int main(){
             enqueue(q);
             break;
         case 2:
-            del=dequeue(q);
-            printf("Deleted element:%d\n",del);
+            dequeue(q);
             break;
         case 3:
             display(q);

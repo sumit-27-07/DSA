@@ -15,7 +15,6 @@ void enqueue(){
     }
 }
 void dequeue(){
-    
     if(f==b){
         f=0;
         b=0;

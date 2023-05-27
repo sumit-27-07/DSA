@@ -76,11 +76,11 @@ int main(){
 	printf("Enter data for insertion:");
 	scanf("%d",&num);
 	
-	//head=insert_first(head,num);
+	head=insert_first(head,num);
 	
-	//printf("Enter index for insertion:");
-	//scanf("%d",&index);
-	//head=insert_between(head,index,num);
+	printf("Enter index for insertion:");
+	scanf("%d",&index);
+	head=insert_between(head,index,num);
 	
 	printf("After insertion in Linked list:\n");
 	head=insert_end(head,num);

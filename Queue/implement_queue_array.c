@@ -6,41 +6,33 @@ struct Queue{
     int f;
     int *arr;
 };
-int isempty(struct Queue *q){
-    if(q->b==q->f){
-        return 1;
-    }
-    return 0;
-}
-int isfull(struct Queue *q){
-    if(q->b==q->size){
-        return 1;
-    }
-    return 0;
-}
 void enqueue(struct Queue *q){
-    if(isfull(q)){
-        printf("Queue is overflow\n");
+    if(q->size==q->b+1){
+        printf("Queue is Full\n");
+        return;
     }
-    else{
-        int val;
-        printf("Enter data for enqueue:");
-        scanf("%d",&val);
-        q->arr[q->b]=val;
-        q->b++;
-    }
-}
-void dequeue(struct Queue *q){
-    int val;
-    if(isempty(q)){
-        printf("Queue is underflow\n");
+    else if(q->b==-1){
         q->b=q->f=0;
     }
     else{
-        val=q->arr[q->f];
-        printf("Deleted element:%d\n",val);
-        q->f++;
+        q->b++;  
     }
+    printf("Enter number for enqueue:");
+    scanf("%d",&q->arr[q->b]);
+}
+void dequeue(struct Queue *q){
+   if(q->f==-1){
+        printf("Queue is Empty\n");
+        return;
+   }
+   int x=q->arr[q->f];
+   if(q->f==q->b){
+        q->f=q->b=-1;
+   }
+   else{
+        q->f++;
+   }
+   printf("Deleted number:%d\n",x);
 }
 void display(struct Queue *q){
     int i=q->f;
@@ -49,13 +41,14 @@ void display(struct Queue *q){
         printf("%d  ",q->arr[i]);
         i++;
     }
+    printf("%d",q->arr[q->b]);
     printf("\n");
 }
 int main(){
-    struct Queue q;
-    q.size=3;
-    q.b=q.f=0;
-    q.arr=(int *) malloc(q.size*sizeof(int));
+    struct Queue *q;
+    q->size=3;
+    q->b=q->f=-1;
+    q->arr=(int *) malloc(q->size*sizeof(int));
     int choice;
     printf("\n\t QUEUE OPERATIONS USING ARRAY");
     printf("\n\t--------------------------------");
@@ -66,13 +59,13 @@ int main(){
         switch (choice)
         {
         case 1:
-            enqueue(&q);
+            enqueue(q);
             break;
         case 2:
-            dequeue(&q);
+            dequeue(q);
             break;
         case 3:
-            display(&q);
+            display(q);
             break;
         case 4:
             printf("\nEXIT POINT");
@@ -82,11 +75,5 @@ int main(){
             printf("\n Please Enter a Valid Choice(1/2/3/4)");
         }
     }while(choice!=4);
-    /*enqueue(&q);
-    enqueue(&q);
-    enqueue(&q);
-    enqueue(&q);
-    dequeue(&q);
-    dequeue(&q);*/
     return 0;
 }

@@ -76,13 +76,13 @@ int main(){
 
 	head=insert_first(head,56);
 	traversal(head);
-	/*printf("Enter index for insertion:");
+	printf("Enter index for insertion:");
 	scanf("%d",&index);
 	printf("Enter number for insertion:");
 	scanf("%d",&new);
 	head=insert_index(head,index,new);
 	printf("\nLinked list after insertion:\n");
-	traversal(head);*/
+	traversal(head);
 	return 0;
 }
 

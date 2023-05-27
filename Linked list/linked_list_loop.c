@@ -22,7 +22,7 @@ struct node *create(struct node *head,int i){
         return(head);
     }
 }
-/*struct node *insert_head(struct node *head){
+struct node *insert_head(struct node *head){
     struct node *ptr;
     ptr=(struct node *)malloc(sizeof(struct node));
     printf("Enter data for insert at head:");
@@ -56,7 +56,7 @@ struct node *insert_pos(struct node *head,int data,int pos){
     ptr->next=p->next;
     p->next=ptr;
     return (head);
-}*/
+}
 struct node *delete_first(struct node *head){
 	head=head->next;
 	return(head);
@@ -120,7 +120,7 @@ int main(){
     print(head);
 
     head=insert_end(head);
-    print(head);*/
+    print(head);
     printf("Linked list after delete head element:\n");
     head=delete_first(head);
     print(head);
@@ -129,6 +129,8 @@ int main(){
     print(head);
     printf("Linked list after delete end element:\n");
     head=delete_end(head);
+    print(head);*/
+    head=delete_pos(head);
     print(head);
     return 0;
 }

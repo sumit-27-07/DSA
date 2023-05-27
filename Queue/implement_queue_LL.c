@@ -17,7 +17,7 @@ void enqueue(){
         scanf("%d",&num);
         n->data=num;
         n->next=NULL;
-        if(f==NULL){
+        if(r==NULL){
             f=r=n;
         }
         else{
