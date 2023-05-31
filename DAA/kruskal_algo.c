@@ -74,7 +74,7 @@ void Kruskal(struct Graph G[], int V, int E)
     for(i=0; i < V; i++)
         parent[i] = -1;
 
-    for(i=0; i< E; i++)
+    for(i=0; i< V; i++)
     {
         p1 = find1(G[i].source);
         p2 = find1(G[i].dest);
@@ -96,7 +96,7 @@ int main()
     struct Graph G[V];
     printf("\nEnter the source, destination and the weight: \n");
     int i;
-    for(i=0; i < E; i++)
+    for(i=0; i < V-1; i++)
     {
         printf("Enter details of  edge%d:\n",i+1);
         printf("Enter Source Vertex:");
