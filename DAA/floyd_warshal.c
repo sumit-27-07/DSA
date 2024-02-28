@@ -22,9 +22,9 @@ void short_path(int graph[v][v]){
 }
 int main(){
     int graph[v][v]={{0,5,inf,10},
-                     {inf,0,3,inf},
+                     {2,0,3,inf},
                      {inf,inf,0,1},
-                     {inf,inf,inf,0}};
+                     {5,3,inf,0}};
     short_path(graph);
     printf("All pair shortest path:\n");
     for(int i=0;i<v;i++){

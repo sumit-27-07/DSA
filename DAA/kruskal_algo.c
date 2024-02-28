@@ -96,7 +96,7 @@ int main()
     struct Graph G[V];
     printf("\nEnter the source, destination and the weight: \n");
     int i;
-    for(i=0; i < V-1; i++)
+    for(i=0; i < V; i++)
     {
         printf("Enter details of  edge%d:\n",i+1);
         printf("Enter Source Vertex:");

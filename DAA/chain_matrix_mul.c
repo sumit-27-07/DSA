@@ -15,8 +15,9 @@ void chainmatrixmul(int arr[],int n){
                         s[i][j]=k;
                     }
                 }
-           }
-        }   
+        }
+    }
+    printf("Minimum number of multiplication:%d\n",m[1][n]);
 }
 int main(){
     int n;
